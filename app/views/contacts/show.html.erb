@@ -19,6 +19,13 @@
 </p>
 
 <p>
+  <b>Company:</b>
+  <% if @contact.company %>
+  <%= link_to @contact.company.name, @contact.company %>
+  <% end %>
+</p>
+
+<p>
   <b>Phone number:</b>
   <%= @contact.phone_number %>
 </p>
