@@ -15,7 +15,7 @@
     <p class="detail">
     <%= mail_to contact.email %><br />
     <%= contact.phone_number %><br />
-    <%= image_tag("twitter.png", :alt => contact.twitter_account ) if contact.twitter_account %>
+    <%= image_tag("twitter.png", :alt => contact.twitter_account ) if not contact.twitter_account.blank? %>
     </p>
     <p class="actions">
     <%= link_to 'Show', contact %>

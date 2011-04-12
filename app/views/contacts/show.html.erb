@@ -35,7 +35,7 @@
   <%= @contact.twitter_account %>
 </p>
 
-<% if @contact.twitter_account %>
+<% if not @contact.twitter_account.blank? %>
   <h2>Tweets</h2>
 
   <table>
@@ -46,22 +46,23 @@
       <td><%= image_tag("ajax-loader.gif", :alt => 'Loading' )  %> Please wait while loading...</td>
     </tr>
   </table>
-<% end %>
-<script>
-  $(document).ready(function(){
-    $.ajax({
-      type: "GET",
-      url: "<%= url_for [@contact, :tweets]%>.json",    
-      dataType: "json",
-      success: function(data){
-        var html = '' ;
-        for( var i=0; i<data.length; i++ ) {
-          html += '<tr><td>'+data[i].text+'</td></tr>' ;
-        }
-        $('#tweets').html(html) ;
-     }
+  <script>
+    $(document).ready(function(){
+      $.ajax({
+        type: "GET",
+        url: "<%= url_for [@contact, :tweets]%>.json",    
+        dataType: "json",
+        success: function(data){
+          var html = '' ;
+          for( var i=0; i<data.length; i++ ) {
+            html += '<tr><td>'+data[i].text+'</td></tr>' ;
+          }
+          $('#tweets').html(html) ;
+       }
+    });
   });
-});
+<% end %>
+
 </script>
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
