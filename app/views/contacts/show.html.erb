@@ -35,6 +35,33 @@
   <%= @contact.twitter_account %>
 </p>
 
+<% if @contact.twitter_account %>
+  <h2>Tweets</h2>
 
+  <table>
+    <tr>
+      <th>text</th>
+    </tr>
+    <tr id="tweets">
+      <td><%= image_tag("ajax-loader.gif", :alt => 'Loading' )  %> Please wait while loading...</td>
+    </tr>
+  </table>
+<% end %>
+<script>
+  $(document).ready(function(){
+    $.ajax({
+      type: "GET",
+      url: "<%= url_for [@contact, :tweets]%>.json",    
+      dataType: "json",
+      success: function(data){
+        var html = '' ;
+        for( var i=0; i<data.length; i++ ) {
+          html += '<tr><td>'+data[i].text+'</td></tr>' ;
+        }
+        $('#tweets').html(html) ;
+     }
+  });
+});
+</script>
 <%= link_to 'Edit', edit_contact_path(@contact) %> |
 <%= link_to 'Back', contacts_path %>
