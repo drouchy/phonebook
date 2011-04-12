@@ -52,6 +52,7 @@ GEM
       rails (>= 3.0.0)
     ffi (1.0.7)
       rake (>= 0.8.7)
+    haml (3.0.25)
     i18n (0.5.0)
     jquery-rails (0.2.7)
       rails (~> 3.0)
@@ -126,6 +127,7 @@ PLATFORMS
 DEPENDENCIES
   capybara
   factory_girl_rails (>= 1.1.beta1)
+  haml
   jquery-rails
   meta_search
   paperclip

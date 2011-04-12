@@ -3,34 +3,26 @@
 <h1>Listing contacts</h1>
 
 <%= will_paginate @contacts %>
-
-<table>
-  <tr>
-    <th></th>
-    <th>First name</th>
-    <th>Last name</th>
-    <th>Email</th>
-    <th>Phone number</th>
-    <th>Twitter</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul id="contacts">
 <% @contacts.each do |contact| %>
-  <tr>
-    <td><%= image_tag contact.picture.url(:thumb) %></td>
-    <td><%= contact.first_name %></td>
-    <td><%= contact.last_name %></td>
-    <td><%= contact.email %></td>
-    <td><%= contact.phone_number %></td>
-    <td><%= image_tag("twitter.png", :alt => contact.twitter_account ) if contact.twitter_account %></td>
-    <td><%= link_to 'Show', contact %></td>
-    <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-    <td><%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li>
+    <div class="contact">
+    <h2>
+    <%= image_tag contact.picture.url(:thumb) %>
+    <%= contact.first_name %> <%= contact.last_name %></h2>
+    <p class="detail">
+    <%= contact.email %><br />
+    <%= contact.phone_number %><br />
+    <%= image_tag("twitter.png", :alt => contact.twitter_account ) if contact.twitter_account %>
+    </p>
+    <p class="actions">
+    <%= link_to 'Show', contact %>
+    <%= link_to 'Edit', edit_contact_path(contact) %>
+    <%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %>
+    </p>
+  </li>
 <% end %>
-</table>
+</ul>
 
 <br />
 

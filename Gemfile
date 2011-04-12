@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem "will_paginate", "~> 3.0.pre2"
 gem "meta_search"
 gem "paperclip"
+gem 'haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'

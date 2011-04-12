@@ -1,0 +1,10 @@
+#contacts {
+  list-style: none; }
+  #contacts li {
+    float: left;
+    width: 300px;
+    border: dashed gray 1px;
+    min-height: 200px;
+    border-radius: 15px;
+    margin: 10px;
+    padding: 5px; }
