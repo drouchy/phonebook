@@ -1,5 +1,5 @@
-<h2>Search</h2>
-
-<%= form_for @search , :html => { :method => :get } do |f| %>
-  <%= f.label :q, 'Search' %> <%= f.search_field :q %> <%= f.submit 'Search' %>
+<section class="search">
+  <%= form_tag contacts_path, :method => 'get', :id => 'search_form' do %>
+    <%= search_field_tag :q, params[:q], {:placeholder => 'Search contacts'} %> <%= submit_tag 'Search', :name => nil, :class => 'submit' %>
 <% end %>
+</section>

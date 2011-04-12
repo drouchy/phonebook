@@ -8,3 +8,10 @@
     border-radius: 15px;
     margin: 10px;
     padding: 5px; }
+
+.search {
+  text-align: right; }
+
+.pagination {
+  text-align: center;
+  clear: both; }

@@ -1,8 +1,10 @@
-<%= render 'search' %>
-
 <h1>Listing contacts</h1>
 
-<%= will_paginate @contacts %>
+<%= render 'search' %>
+
+<%= link_to 'New Contact', new_contact_path %>
+
+<section>
 <ul id="contacts">
 <% @contacts.each do |contact| %>
   <li>
@@ -23,7 +25,6 @@
   </li>
 <% end %>
 </ul>
+</section>
 
-<br />
-
-<%= link_to 'New Contact', new_contact_path %>
+<%= will_paginate @contacts %>

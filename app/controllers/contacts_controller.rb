@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   # GET /contacts.xml
   def index
     if params[:q]
-      search = Contact.search :first_name_or_last_namecontains => params[:q]
+      search = Contact.search :first_name_or_last_name_contains => params[:q]
       @search = params[:q]
     else
       @search = ''
