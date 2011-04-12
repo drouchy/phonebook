@@ -1,4 +1,6 @@
 Phonebook::Application.routes.draw do
+  resources :companies
+
   resources :contacts
 
   root :to => 'home#index'
