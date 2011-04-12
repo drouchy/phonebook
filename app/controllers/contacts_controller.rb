@@ -1,3 +1,5 @@
+require 'twitter'
+
 class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.xml
@@ -88,6 +90,15 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(contacts_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  def tweets
+    contact = Contact.find(params[:contact_id])
+    
+    @tweets = Twitter.user_timeline(contact.twitter_account)
+    respond_to do |format|
+      format.json  { render :json => @tweets.to_json }
     end
   end
 end

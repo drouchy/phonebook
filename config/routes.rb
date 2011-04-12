@@ -1,7 +1,9 @@
 Phonebook::Application.routes.draw do
   resources :companies
 
-  resources :contacts
+  resources :contacts do
+    get 'tweets'
+  end
 
   root :to => 'home#index'
 
