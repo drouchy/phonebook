@@ -2,7 +2,14 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.xml
   def index
-    @contacts = Contact.paginate :page => params[:page], :per_page => 10
+    if params[:search]
+      search = Contact.search :first_name_or_last_name_contains => params[:search]
+      @search = params[:search]
+    else
+      @search = ''
+      search = Contact
+    end
+    @contacts = search.paginate :page => params[:page], :per_page => 10
 
     respond_to do |format|
       format.html # index.html.erb
