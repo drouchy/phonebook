@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <%= image_tag @contact.picture.url(:medium) %>
+</p>
+<p>
   <b>First name:</b>
   <%= @contact.first_name %>
 </p>

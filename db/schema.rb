@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110412070131) do
+ActiveRecord::Schema.define(:version => 20110412075245) do
 
   create_table "contacts", :force => true do |t|
     t.string   "first_name"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(:version => 20110412070131) do
     t.string   "twitter_account"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
 end
