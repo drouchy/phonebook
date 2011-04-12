@@ -30,10 +30,10 @@
     <header id="banner" class="body"> 
 		  <h1><a href="/">Phonebook!</a></h1> 
 		  <nav><ul> 
-			<li class="active"><a href="/">home</a></li> 
-  			<li><%= link_to "Contacts", contacts_path %></li> 
-	  		<li><a href="#">companies</a></li> 
-	  		<li><a href="#">contact me</a></li> 
+			<li class="<%= 'active' if is_current_controller?('home') %>"><a href="/">home</a></li> 
+  			<li class="<%= 'active' if is_current_controller?('contacts') %>"><%= link_to "Contacts", contacts_path %></li> 
+	  		<li class="<%= 'active' if is_current_controller?('companies') %>"><%= link_to "Companies", companies_path %></a></li> 
+	  		<li class="<%= 'active' if is_current_controller?('contact_me') %>"><a href="#">contact me</a></li> 
   		</ul></nav> 
 	  </header>
 
