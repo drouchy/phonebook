@@ -11,7 +11,7 @@
     <th>Last name</th>
     <th>Email</th>
     <th>Phone number</th>
-    <th>Twitter account</th>
+    <th>Twitter</th>
     <th></th>
     <th></th>
     <th></th>
@@ -24,7 +24,7 @@
     <td><%= contact.last_name %></td>
     <td><%= contact.email %></td>
     <td><%= contact.phone_number %></td>
-    <td><%= contact.twitter_account %></td>
+    <td><%= image_tag("twitter.png", :alt => contact.twitter_account ) if contact.twitter_account %></td>
     <td><%= link_to 'Show', contact %></td>
     <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
     <td><%= link_to 'Destroy', contact, :confirm => 'Are you sure?', :method => :delete %></td>
