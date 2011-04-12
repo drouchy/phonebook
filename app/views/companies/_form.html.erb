@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :contact_tokens, "Contacts" %><br />
-    <%= f.text_field :contact_tokens %>
+    <%= f.text_field :contact_tokens, "data-pre" => get_contacts_to_json(@company.contacts) %>
   </div>
   <div class="actions">
     <%= f.submit %>

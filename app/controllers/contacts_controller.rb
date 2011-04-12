@@ -11,6 +11,8 @@ class ContactsController < ApplicationController
     end
     @contacts = search.paginate :page => params[:page], :per_page => 10
 
+    ActiveRecord::Base.include_root_in_json = false
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @contacts }
