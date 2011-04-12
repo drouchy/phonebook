@@ -2,9 +2,9 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.xml
   def index
-    if params[:search]
-      search = Contact.search :first_name_or_last_name_contains => params[:search]
-      @search = params[:search]
+    if params[:q]
+      search = Contact.search :first_name_or_last_namecontains => params[:q]
+      @search = params[:q]
     else
       @search = ''
       search = Contact
@@ -14,6 +14,7 @@ class ContactsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @contacts }
+      format.json { render :json => @contacts.to_json(:only => [:id], :methods => [:name]) }
     end
   end
 

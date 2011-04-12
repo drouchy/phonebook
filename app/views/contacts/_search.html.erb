@@ -1,5 +1,5 @@
 <h2>Search</h2>
 
 <%= form_for @search , :html => { :method => :get } do |f| %>
-  <%= f.label :search %> <%= f.search_field :search %> <%= f.submit 'Search' %>
+  <%= f.label :q, 'Search' %> <%= f.search_field :q %> <%= f.submit 'Search' %>
 <% end %>

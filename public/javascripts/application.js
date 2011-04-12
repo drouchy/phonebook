@@ -1,2 +1,8 @@
-// Place your application-specific JavaScript functions and classes here
-// This file is automatically included by javascript_include_tag :defaults
+$(function() {
+  $("#company_contact_tokens").tokenInput("/contacts.json", {
+    crossDomain: false,
+    prePopulate: $("#company_contact_tokens").data("pre"),
+    theme: "facebook"
+  });
+});
+
