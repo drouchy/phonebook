@@ -1,4 +1,8 @@
 Phonebook::Application.routes.draw do
+  resources :contacts
+
+  root :to => 'home#index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
